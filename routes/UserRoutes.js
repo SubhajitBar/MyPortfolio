@@ -12,7 +12,7 @@ router.route("/logout").get(logout);
 
 router.route("/me").get(isAuthenticated, getMyProfile);
 
-router.route("/admin/user").get(isAuthenticated, getUser);
+router.route("/user").get( getUser);
 
 router.route("/admin/update").put(isAuthenticated, updateUser);
 
