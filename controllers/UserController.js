@@ -100,7 +100,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
     if (skills) {
         if (skills.image1) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image1.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image1.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image1, { folder: "Portfolio" });
 
@@ -111,7 +111,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         };
         if (skills.image2) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image2.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image2.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image2, { folder: "Portfolio" });
 
@@ -122,7 +122,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         };
         if (skills.image3) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image3.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image3.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image3, { folder: "Portfolio" });
 
@@ -133,7 +133,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         };
         if (skills.image4) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image4.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image4.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image4, { folder: "Portfolio" });
 
@@ -144,7 +144,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         };
         if (skills.image5) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image5.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image5.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image5, { folder: "Portfolio" });
 
@@ -155,7 +155,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         };
         if (skills.image6) {
 
-            await cloudinary.v2.uploader.destroy(user.skills.image6.public_id);
+            // await cloudinary.v2.uploader.destroy(user.skills.image6.public_id);
 
             const myCloud = await cloudinary.v2.uploader.upload(skills.image6, { folder: "Portfolio" });
 
@@ -174,7 +174,7 @@ export const updateUser = catchAsyncError(async (req, res, next) => {
         if(about.description) user.about.description = about.description;
         if(about.quote) user.about.quote = about.quote;
         if (about.avatar) {
-            await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
+            // await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
             const myCloud = await cloudinary.v2.uploader.upload(about.avatar, { folder: "Portfolio" })
             user.about.avatar = {
                 public_id: myCloud.public_id,
