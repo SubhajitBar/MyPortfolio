@@ -73,16 +73,16 @@ const schema = new mongoose.Schema({
 
     projects: [
         {
+          url: String,
+          title: String,
+          image: {
+            public_id: String,
             url: String,
-            title: String,
-            description: String,
-            techStack: String,
-            image:{
-                public_id: String,
-                url: String,
-            }
+          },
+          description: String,
+          techStack: String,
         },
-    ],
+      ],
 
 });
 

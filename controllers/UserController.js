@@ -245,31 +245,32 @@ export const addYoutube = catchAsyncError(async (req, res, next) => {
 });
 
 export const addProject = catchAsyncError(async (req, res, next) => {
+    
+    const { url, title, image, description, techStack } = req.body;
 
-    const { url, title, description, image, techStack } = req.body;
-
-    if (!url || !title || description || !image || !techStack) return next(new ErrorHandler("Please Enter All Fields", 400));
+    if(!url || !title || !image || !description || !techStack) return next(new ErrorHandler("Please Enter All Fields", 400))
 
     const user = await User.findById(req.user._id);
 
-    const myCloud = await cloudinary.v2.uploader.upload(image, { folder: "Portfolio" });
-
+    const myCloud = await cloudinary.v2.uploader.upload(image, {
+      folder: "portfolio",
+    });
     user.projects.unshift({
-        url,
-        title,
-        description,
-        techStack,
-        image: {
-            public_id: myCloud.public_id,
-            url: myCloud.secure_url,
-        },
+      url,
+      title,
+      description,
+      techStack,
+      image: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
     });
 
     await user.save();
 
     res.status(200).json({
-        success: true,
-        message: "Added to Projects"
+      success: true,
+      message: "Added To Projects",
     });
 
 });
