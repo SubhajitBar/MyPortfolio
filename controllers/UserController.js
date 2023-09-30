@@ -70,11 +70,11 @@ export const logout = catchAsyncError(async (req, res, next) => {
 });
 
 export const getUser = catchAsyncError(async (req, res, next) => {
-    const user = await User.find().select("-email -password");
+    const user = await User.findOne().select("-email -password");
 
     res.status(200).json({
         success: true,
-        user
+        user,
     });
 });
 
@@ -239,7 +239,7 @@ export const addYoutube = catchAsyncError(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        message: "Added to Youtube"
+        message: "Added to Youtube",
     });
 
 });
